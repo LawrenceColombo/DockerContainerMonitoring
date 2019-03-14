@@ -1,0 +1,60 @@
+version: "3"
+
+volumes: 
+    prometheus_data: {}
+    grafana_data: {}
+
+networks:
+  monitor-net:
+    driver: bridge
+
+services:
+    prometheus:
+        image: prom/prometheus:v2.7.1
+        container_name: prometheus
+        expose:
+            - "9090"
+        volumes: 
+            - prometheus_data:/prometheus
+            - ./prometheus/:/etc/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--storage.tsdb.path=/prometheus'
+        restart: unless-stopped
+        networks: 
+            - monitor-net
+
+    grafana:
+        build:
+            context: ./grafana
+        container_name: grafana
+        environment:
+            - "GF_SERVER_HTTP_PORT=9120"
+            - "GF_SERVER_ROOT_URL=http://0.0.0.0:9120"
+            - "GF_AUTH_ANONYMOUS_ENABLED=true"
+            - "GF_AUTH_ANONYMOUS_ORG_NAME=Main Org."
+            - "GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer"
+            - "GF_PATHS_PROVISIONING=/etc/grafana/provisioning"
+        volumes:
+            - grafana_data:/var/lib/grafana
+        restart: unless-stopped
+        ports:
+            - "9120:9120"
+        expose:
+            - "9120"
+        networks: 
+            - monitor-net
+
+    nginx:
+        build:
+            context: ./nginx
+        container_name: nginx
+        restart: unless-stopped
+        expose: 
+            - "8080"
+            - "80"
+        ports:
+            - "8080:8080"
+            - "80:80"
+        networks: 
+            - monitor-net
