@@ -1696,26 +1696,5 @@
         "title": "Docker Host",
         "uid": "VletTpriz",
         "version": 3
-    },
-    "meta": {
-        "canAdmin": false,
-        "canEdit": false,
-        "canSave": false,
-        "canStar": false,
-        "created": "2019-02-25T08:36:28Z",
-        "createdBy": "admin",
-        "expires": "0001-01-01T00:00:00Z",
-        "folderId": 4,
-        "folderTitle": "Docker",
-        "folderUrl": "/dashboards/f/WrKQ9B9mk/docker",
-        "hasAcl": false,
-        "isFolder": false,
-        "provisioned": false,
-        "slug": "docker-host",
-        "type": "db",
-        "updated": "2019-02-26T09:27:59Z",
-        "updatedBy": "admin",
-        "url": "/d/VletTpriz/docker-host",
-        "version": 3
     }
 }
