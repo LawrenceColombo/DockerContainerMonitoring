@@ -1452,7 +1452,7 @@
             }
         }
     ],
-    "refresh": "5s",
+    "refresh": "15s",
     "schemaVersion": 16,
     "style": "dark",
     "tags": [],
@@ -1460,7 +1460,7 @@
         "list": []
     },
     "time": {
-        "from": "now-6h",
+        "from": "now-1h",
         "to": "now"
     },
     "timepicker": {
@@ -1489,7 +1489,7 @@
         ]
     },
     "timezone": "",
-    "title": "Docker Containers",
+    "title": "Containers",
     "uid": "Yd-_df9mk",
-    "version": 4
+    "version": 1
 }
