@@ -12,10 +12,11 @@
             }
         ]
     },
+    "description": "Information on Docker Containers",
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 2,
+    "id": null,
     "links": [],
     "panels": [
         {
